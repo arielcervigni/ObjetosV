@@ -1,6 +1,6 @@
 package com.ObjetosV;
 
-public abstract class Artista {
+public class Artista {
 
     // Artista a su vez posee un nombre, su edad y la nacionalidad.
 

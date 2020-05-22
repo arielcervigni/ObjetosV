@@ -6,15 +6,32 @@ import java.util.Scanner;
 public class ListaDeReproduccion implements Reproduccion {
 
     private ArrayList <Cancion> canciones;
+    private Cancion unaCancion;
 
-    public ListaDeReproduccion(ArrayList<Cancion> canciones) {
+    public ListaDeReproduccion(ArrayList<Cancion> canciones,Cancion unaCancion) {
         this.canciones = canciones;
+        this.unaCancion = unaCancion;
+    }
+
+    public ArrayList<Cancion> getCanciones() {
+        return canciones;
+    }
+
+    public void setCanciones(ArrayList<Cancion> canciones) {
+        this.canciones = canciones;
+    }
+
+    public Cancion getUnaCancion() {
+        return unaCancion;
+    }
+
+    public void setUnaCancion(Cancion unaCancion) {
+        this.unaCancion = unaCancion;
     }
 
     @Override
     public void reproducir() {
-        int i = posCancion();
-        System.out.println("Soy " + canciones.get(i).toString() + " y me estoy reproduciendo. ");
+        System.out.println("Soy " + this.unaCancion.toString() + " y me estoy reproduciendo. ");
     }
 
     @Override
@@ -37,6 +54,12 @@ public class ListaDeReproduccion implements Reproduccion {
             System.out.println(i+". "+c);
             i++;
         }
+    }
+
+    @Override
+    public void cambiarCancion() {
+        posCancion();
+
     }
 
     public int posCancion ()

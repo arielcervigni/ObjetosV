@@ -1,6 +1,6 @@
 package com.ObjetosV;
 
-public class Cancion extends Album {
+public class Cancion {
 
     // Se nos pide armar un programa similar a Spotify que nos permitirá administrar nuestras listas de reproducción.
 
@@ -12,13 +12,17 @@ public class Cancion extends Album {
     private Float duracion;
     private String genero;
     private Artista artistaInvitado;
+    private Album album;
+    private Artista artista;
 
-    public Cancion(String nombre, int edad, String nacionalidad, int año, String titulo, String tituloCancion, Float duracion, String genero, Artista artistaInvitado) {
-        super(nombre, edad, nacionalidad, año, titulo);
+    public Cancion(String tituloCancion, Float duracion, String genero, Artista artistaInvitado, Album album, Artista artista) {
+
         this.tituloCancion = tituloCancion;
         this.duracion = duracion;
         this.genero = genero;
         this.artistaInvitado = artistaInvitado;
+        this.album = album;
+        this.artista = artista;
     }
 
     public String getTituloCancion() {
@@ -48,18 +52,18 @@ public class Cancion extends Album {
 
     @Override
     public String toString() {
-        if (artistaInvitado!=null) {
+        if (artistaInvitado != null) {
             return  "Titulo: '" + tituloCancion + '\'' +
                     ". Duración:" + duracion +
                     ". Género:" + genero + '\'' +
-                    ". Artista Invitado=" + artistaInvitado +
-                    '}';
+                    ". Artista Invitado=" + artistaInvitado.toString()
+                    + artista.toString() + album.toString();
         }
         else
         {
             return  "Título: '" + tituloCancion + '\'' +
                     ". Duración: " + duracion +
-                    ". Género: '" + genero + '\'' + super.toString();
+                    ". Género: '" + genero + artista.toString() + album.toString();
         }
     }
 }
